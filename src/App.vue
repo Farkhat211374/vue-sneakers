@@ -1,47 +1,33 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import Header from '@/components/Header.vue'
+import CartList from '@/components/CardList.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <div class="bg-white w-4/5 m-auto rounded-2xl shadow-xl mt-14">
+    <Header />
+    <div class="p-10">
+      <div class="flex justify-between items-center">
+        <h1 class="text-3xl font-bold mb-8">Все кроссовки</h1>
+        <div class="flex gap-5">
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+          <select class="py-2 px-3 border rounded-md outline-none">
+            <option>По названию</option>
+            <option>Сначала дешевые</option>
+            <option>Сначала дорогие</option>
+          </select>
+
+          <div class="relative">
+            <img class="absolute left-4 top-3" src="/search.svg" alt="Search" />
+            <input
+              class="border rounded-md py-2 pl-11 pr-4 outline-none transition focus:border-gray-400"
+              placeholder="Поиск..."
+            />
+          </div>
+
+        </div>
+      </div>
+      <CartList />
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  </div>
 </template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
-</style>
